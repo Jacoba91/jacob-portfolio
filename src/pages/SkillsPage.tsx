@@ -200,10 +200,10 @@ export function SkillsPage() {
         <BentoCard title="currently-learning" colSpan={2} delay={0.45}>
           <div className="space-y-3">
             <p className="text-sm dark:text-mocha-subtext0 text-bone-pencil">
-              Always expanding my toolkit:
+              Always expanding my horizons:
             </p>
             <div className="flex flex-wrap gap-2">
-              {["Rust", "Go", "Kubernetes", "System Design"].map((tech) => (
+              {["system design", "ocaml", "authentication"].map((tech) => (
                 <span
                   key={tech}
                   className="accent-tag px-2 py-1 text-xs font-mono rounded-md

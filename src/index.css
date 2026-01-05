@@ -230,6 +230,14 @@ html.dark .bento-card .icon-link:hover {
   background-color: rgba(65, 72, 104, 0.6);
 }
 
+html.dark .bento-card .icon-link svg {
+  color: #a9b1d6;
+}
+
+html.dark .bento-card .icon-link:hover svg {
+  color: #c0caf5;
+}
+
 /* Quick nav and action links */
 html.dark .bento-card .nav-card-link {
   background-color: rgba(65, 72, 104, 0.3);
