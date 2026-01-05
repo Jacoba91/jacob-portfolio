@@ -145,7 +145,7 @@ export function SkillsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <BentoCard title="~/skills" colSpan={4} delay={0} className="mb-6">
+      <BentoCard title="~/skills" colSpan={4} delay={0}>
         <div>
           <h1 className="text-3xl font-serif font-bold dark:text-mocha-text text-bone-ink mb-2">
             Skills & Technologies

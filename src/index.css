@@ -272,3 +272,52 @@ html.dark .bento-card blockquote {
 html.dark .bento-card blockquote p {
   color: #c0caf5;
 }
+
+/* Command Palette dark mode styles */
+html.dark .command-palette {
+  background-color: rgba(30, 32, 48, 0.95);
+  border-color: rgba(65, 72, 104, 0.5);
+}
+
+html.dark .command-palette-header {
+  border-color: rgba(65, 72, 104, 0.4);
+}
+
+html.dark .command-palette input {
+  color: #c0caf5;
+}
+
+html.dark .command-palette input::placeholder {
+  color: #565f89;
+}
+
+html.dark .command-palette-item {
+  color: #a9b1d6;
+}
+
+html.dark .command-palette-item:hover,
+html.dark .command-palette-item.selected {
+  background-color: rgba(65, 72, 104, 0.4);
+}
+
+html.dark .command-palette-item.selected {
+  color: #7aa2f7;
+}
+
+html.dark .command-palette-item .icon {
+  color: #565f89;
+}
+
+html.dark .command-palette-item.selected .icon {
+  color: #7aa2f7;
+}
+
+html.dark .command-palette-footer {
+  border-color: rgba(65, 72, 104, 0.4);
+  color: #565f89;
+}
+
+html.dark .command-palette-footer kbd {
+  background-color: rgba(65, 72, 104, 0.4);
+  color: #a9b1d6;
+}

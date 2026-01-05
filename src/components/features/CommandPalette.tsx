@@ -219,13 +219,13 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             className="fixed left-1/2 top-[20%] z-50 -translate-x-1/2 w-full max-w-lg"
           >
             <div
-              className="mx-4 rounded-xl overflow-hidden shadow-2xl
+              className="command-palette mx-4 rounded-xl overflow-hidden shadow-2xl
               dark:bg-mocha-mantle border dark:border-mocha-surface0
               bg-bone-paper border-bone-ash"
             >
               {/* Search Input */}
-              <div className="flex items-center gap-3 px-4 py-3 border-b dark:border-mocha-surface0 border-bone-ash">
-                <Search className="w-5 h-5 dark:text-mocha-subtext0 text-bone-pencil" />
+              <div className="command-palette-header flex items-center gap-3 px-4 py-3 border-b dark:border-mocha-surface0 border-bone-ash">
+                <Search className="icon w-5 h-5 dark:text-mocha-subtext0 text-bone-pencil" />
                 <input
                   type="text"
                   value={query}
@@ -256,19 +256,19 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                       key={cmd.id}
                       onClick={cmd.action}
                       onMouseEnter={() => setSelectedIndex(index)}
-                      className={`w-full flex items-center gap-3 px-4 py-2.5 font-mono text-sm transition-colors
+                      className={`command-palette-item w-full flex items-center gap-3 px-4 py-2.5 font-mono text-sm transition-colors
                         ${
                           index === selectedIndex
-                            ? "dark:bg-mocha-surface0 bg-bone-cream dark:text-mocha-mauve text-latte-mauve"
+                            ? "selected dark:bg-mocha-surface0 bg-bone-cream dark:text-mocha-mauve text-latte-mauve"
                             : "dark:text-mocha-text text-bone-ink dark:hover:bg-mocha-surface0/50 hover:bg-bone-cream/50"
                         }`}
                     >
                       <span
-                        className={
+                        className={`icon ${
                           index === selectedIndex
                             ? "dark:text-mocha-mauve text-latte-mauve"
                             : "dark:text-mocha-subtext0 text-bone-pencil"
-                        }
+                        }`}
                       >
                         {cmd.icon}
                       </span>
@@ -279,7 +279,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between px-4 py-2 border-t dark:border-mocha-surface0 border-bone-ash">
+              <div className="command-palette-footer flex items-center justify-between px-4 py-2 border-t dark:border-mocha-surface0 border-bone-ash">
                 <div className="flex items-center gap-4 text-xs font-mono dark:text-mocha-subtext0 text-bone-pencil">
                   <span className="flex items-center gap-1">
                     <kbd className="px-1.5 py-0.5 rounded dark:bg-mocha-surface0 bg-bone-cream">
