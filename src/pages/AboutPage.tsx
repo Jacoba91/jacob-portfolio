@@ -3,9 +3,9 @@ import { BentoGrid } from "../components/layout";
 import {
   GraduationCap,
   MapPin,
-  Heart,
-  Code,
-  Coffee,
+  Rocket,
+  Trophy,
+  Plane,
   Globe,
 } from "lucide-react";
 
@@ -20,21 +20,19 @@ export function AboutPage() {
           </h1>
           <div className="space-y-4 dark:text-mocha-subtext1 text-bone-pencil leading-relaxed">
             <p>
-              Hey! I'm Jacob, a Software Engineering student at McGill
-              University with a passion for building elegant, user-focused
-              applications. I believe in writing clean, maintainable code that
-              solves real problems.
+              I'm Jacob, a Software Engineering student at McGill University
+              with a passion for solving problems.
             </p>
             <p>
-              My journey in tech started with curiosity about how things work
-              under the hood. That curiosity has evolved into a deep
-              appreciation for full-stack development, where I get to see ideas
-              transform from concept to deployment.
+              My journey in tech started with writing short scripts that made my
+              life easier. That curiosity has evolved into a deep appreciation
+              for full-stack development, where I get to see ideas transform
+              from concept to deployment.
             </p>
             <p>
-              When I'm not coding, you'll find me exploring new technologies,
-              contributing to open-source projects, or grabbing a coffee while
-              brainstorming the next big idea.
+              Outside of work/school, I love pushing my limits athletically in
+              competitive settings. I particularly enjoy going to the gym and
+              playing hockey.
             </p>
           </div>
         </div>
@@ -105,25 +103,25 @@ export function AboutPage() {
             className="icon-container flex flex-col items-center gap-2 p-3 rounded-lg 
             dark:bg-mocha-surface0/50 bg-bone-cream/50"
           >
-            <Code className="w-6 h-6 dark:text-mocha-mauve text-latte-mauve" />
+            <Trophy className="w-6 h-6 dark:text-mocha-mauve text-latte-mauve" />
             <span className="text-sm font-mono dark:text-mocha-subtext1 text-bone-pencil text-center">
-              Open Source
+              Hockey
             </span>
           </div>
           <div
             className="icon-container flex flex-col items-center gap-2 p-3 rounded-lg 
             dark:bg-mocha-surface0/50 bg-bone-cream/50"
           >
-            <Coffee className="w-6 h-6 dark:text-mocha-peach text-latte-peach" />
+            <Plane className="w-6 h-6 dark:text-mocha-peach text-latte-peach" />
             <span className="text-sm font-mono dark:text-mocha-subtext1 text-bone-pencil text-center">
-              Coffee Brewing
+              Traveling
             </span>
           </div>
           <div
             className="icon-container flex flex-col items-center gap-2 p-3 rounded-lg 
             dark:bg-mocha-surface0/50 bg-bone-cream/50"
           >
-            <Heart className="w-6 h-6 dark:text-mocha-red text-latte-red" />
+            <Rocket className="w-6 h-6 dark:text-mocha-red text-latte-red" />
             <span className="text-sm font-mono dark:text-mocha-subtext1 text-bone-pencil text-center">
               Startups
             </span>
@@ -132,11 +130,13 @@ export function AboutPage() {
       </BentoCard>
 
       {/* Philosophy */}
-      <BentoCard title="philosophy" colSpan={2} delay={0.3}>
+      <BentoCard title="quote" colSpan={2} delay={0.3}>
         <blockquote className="border-l-2 dark:border-mocha-mauve border-latte-mauve pl-4">
           <p className="font-serif italic text-lg dark:text-mocha-text text-bone-ink">
-            "Write code that tells a story. Build products that make a
-            difference."
+            "A problem well stated is a problem half solved."
+          </p>
+          <p className="font-serif text-lg dark:text-mocha-text text-bone-ink">
+            — Charles Kettering
           </p>
         </blockquote>
       </BentoCard>

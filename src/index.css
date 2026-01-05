@@ -82,6 +82,11 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-base);
+}
+
+html.dark {
+  background-color: #0a0a12;
 }
 
 body {

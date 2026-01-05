@@ -1,6 +1,7 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { BentoCard } from "../components/ui";
-import { BentoGrid } from "../components/layout";
-import { Briefcase, Calendar, ExternalLink } from "lucide-react";
+import { Briefcase, Calendar, ChevronDown } from "lucide-react";
 
 interface ExperienceItem {
   company: string;
@@ -65,10 +66,12 @@ function ExperienceCard({
   experience: ExperienceItem;
   delay: number;
 }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <BentoCard
       title={experience.company.toLowerCase().replace(/\./g, "")}
-      colSpan={2}
+      colSpan={4}
       delay={delay}
     >
       <div className="space-y-4">
@@ -106,20 +109,44 @@ function ExperienceCard({
           ))}
         </div>
 
-        {/* Highlights */}
-        <ul className="space-y-2">
-          {experience.highlights.map((highlight, index) => (
-            <li
-              key={index}
-              className="flex items-start gap-2 text-sm dark:text-mocha-subtext1 text-bone-pencil"
+        {/* Highlights - Collapsible */}
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.ul
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-2 overflow-hidden"
             >
-              <span className="dark:text-mocha-green text-latte-green mt-1">
-                ▸
-              </span>
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
+              {experience.highlights.map((highlight, index) => (
+                <li
+                  key={index}
+                  className="flex items-start gap-2 text-sm dark:text-mocha-subtext1 text-bone-pencil"
+                >
+                  <span className="dark:text-mocha-green text-latte-green mt-1">
+                    ▸
+                  </span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+
+        {/* Toggle Button */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="w-full flex justify-center pt-2"
+        >
+          <motion.div
+            animate={{ rotate: isExpanded ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="p-1 rounded-full dark:hover:bg-mocha-surface0 hover:bg-bone-cream transition-colors"
+          >
+            <ChevronDown className="w-5 h-5 dark:text-mocha-subtext0 text-bone-pencil" />
+          </motion.div>
+        </button>
       </div>
     </BentoCard>
   );
@@ -142,8 +169,8 @@ export function ExperiencePage() {
         </div>
       </BentoCard>
 
-      {/* Experience Cards */}
-      <BentoGrid>
+      {/* Experience Cards - Vertical Timeline */}
+      <div className="space-y-6">
         {experiences.map((exp, index) => (
           <ExperienceCard
             key={`${exp.company}-${exp.period}`}
@@ -151,7 +178,7 @@ export function ExperiencePage() {
             delay={0.1 + index * 0.1}
           />
         ))}
-      </BentoGrid>
+      </div>
     </div>
   );
 }

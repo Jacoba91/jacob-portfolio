@@ -14,7 +14,7 @@ export function Starfield({ className = "" }: StarfieldProps) {
   useStarfield(canvasRef, {
     starCount: theme === "dark" ? 500 : 250,
     speed: theme === "dark" ? 1.8 : 1.0,
-    starColor: theme === "dark" ? "#b4befe" : "#8839ef",
+    starColor: theme === "dark" ? "#b4befe" : "#a69c89",
   });
 
   return (
