@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  /* Catppuccin Mocha (Dark Mode) */
+  --color-mocha-base: #1e1e2e;
+  --color-mocha-mantle: #181825;
+  --color-mocha-crust: #11111b;
+  --color-mocha-surface0: #313244;
+  --color-mocha-surface1: #45475a;
+  --color-mocha-surface2: #585b70;
+  --color-mocha-overlay0: #6c7086;
+  --color-mocha-overlay1: #7f849c;
+  --color-mocha-overlay2: #9399b2;
+  --color-mocha-subtext0: #a6adc8;
+  --color-mocha-subtext1: #bac2de;
+  --color-mocha-text: #cdd6f4;
+  --color-mocha-lavender: #b4befe;
+  --color-mocha-blue: #89b4fa;
+  --color-mocha-sapphire: #74c7ec;
+  --color-mocha-sky: #89dceb;
+  --color-mocha-teal: #94e2d5;
+  --color-mocha-green: #a6e3a1;
+  --color-mocha-yellow: #f9e2af;
+  --color-mocha-peach: #fab387;
+  --color-mocha-maroon: #eba0ac;
+  --color-mocha-red: #f38ba8;
+  --color-mocha-mauve: #cba6f7;
+  --color-mocha-pink: #f5c2e7;
+  --color-mocha-flamingo: #f2cdcd;
+  --color-mocha-rosewater: #f5e0dc;
+
+  /* Bone White (Light Mode) */
+  --color-bone-base: #F9F6EE;
+  --color-bone-paper: #F0EAD6;
+  --color-bone-cream: #E8E0CC;
+  --color-bone-ash: #A69C89;
+  --color-bone-pencil: #645D52;
+  --color-bone-ink: #211F1B;
+
+  /* Catppuccin Latte accents for light mode */
+  --color-latte-mauve: #8839ef;
+  --color-latte-blue: #1e66f5;
+  --color-latte-sapphire: #209fb5;
+  --color-latte-green: #40a02b;
+  --color-latte-red: #d20f39;
+  --color-latte-peach: #fe640b;
+
+  /* Fonts */
+  --font-serif: 'Spectral', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Light mode (default) */
+:root {
+  --bg-base: #F9F6EE;
+  --bg-card: #F0EAD6;
+  --bg-surface: #E8E0CC;
+  --text-primary: #211F1B;
+  --text-secondary: #645D52;
+  --accent-primary: #8839ef;
+  --accent-secondary: #fe640b;
+  --border-color: #A69C89;
+}
+
+/* Dark mode - Midnight feel with blues and purples */
+.dark {
+  --bg-base: #0f0f1a;
+  --bg-card: rgba(24, 24, 37, 0.5);
+  --bg-surface: #1e1e2e;
+  --text-primary: #cdd6f4;
+  --text-secondary: #bac2de;
+  --accent-primary: #cba6f7;
+  --accent-secondary: #89b4fa;
+  --border-color: rgba(203, 166, 247, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode body gets the midnight gradient */
+html.dark body {
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #0f0f1a 50%, #0a0a12 100%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Spectral', serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-card);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--bg-base);
+}
+
+/* Terminal cursor blink animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Glassmorphism utility classes */
+.glass {
+  background-color: rgb(24 24 37 / 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.glass-light {
+  background-color: rgb(240 234 214 / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgb(166 156 137 / 0.3);
+}
+
+/* Bento card dark mode styles - VS Code inspired */
+html.dark .bento-card,
+html.dark .nav-bar {
+  background-color: rgba(30, 32, 48, 0.8);
+  border-color: rgba(65, 72, 104, 0.4);
+  box-shadow: 0 10px 15px -3px rgba(122, 162, 247, 0.05);
+}
+
+html.dark .bento-card:hover {
+  border-color: rgba(122, 162, 247, 0.5);
+  background-color: rgba(30, 32, 48, 0.9);
+}
+
+html.dark .bento-card-header {
+  background-color: rgba(26, 27, 38, 0.5);
+  border-color: rgba(65, 72, 104, 0.3);
+}
+
+html.dark .bento-card-title {
+  color: #a9b1d6;
+}
+
+/* Dark mode text colors for card content */
+html.dark .bento-card h1,
+html.dark .bento-card h2,
+html.dark .bento-card h3 {
+  color: #c0caf5;
+}
+
+html.dark .bento-card p {
+  color: #a9b1d6;
+}
+
+html.dark .bento-card li,
+html.dark .bento-card span {
+  color: #9aa5ce;
+}
+
+/* Icon containers in dark mode */
+html.dark .bento-card .icon-container {
+  background-color: rgba(65, 72, 104, 0.3);
+}
+
+/* Tech/skill tags in dark mode */
+html.dark .bento-card .skill-tag {
+  background-color: rgba(65, 72, 104, 0.4);
+  color: #c0caf5;
+  border: 1px solid rgba(122, 162, 247, 0.2);
+}
+
+html.dark .bento-card .skill-tag:hover {
+  background-color: rgba(65, 72, 104, 0.6);
+  border-color: rgba(122, 162, 247, 0.4);
+}
+
+/* Accent colored tags */
+html.dark .bento-card .accent-tag {
+  background-color: rgba(122, 162, 247, 0.15);
+  color: #7aa2f7;
+  border: 1px solid rgba(122, 162, 247, 0.3);
+}
+
+/* Links and interactive elements */
+html.dark .bento-card a,
+html.dark .bento-card button {
+  color: #c0caf5;
+}
+
+html.dark .bento-card a:hover {
+  color: #7aa2f7;
+}
+
+/* Icon button links in cards */
+html.dark .bento-card .icon-link {
+  background-color: rgba(65, 72, 104, 0.4);
+}
+
+html.dark .bento-card .icon-link:hover {
+  background-color: rgba(65, 72, 104, 0.6);
+}
+
+/* Quick nav and action links */
+html.dark .bento-card .nav-card-link {
+  background-color: rgba(65, 72, 104, 0.3);
+}
+
+html.dark .bento-card .nav-card-link:hover {
+  background-color: rgba(65, 72, 104, 0.5);
+}
+
+/* Navbar dark mode styles */
+html.dark .nav-bar a,
+html.dark .nav-bar span {
+  color: #9aa5ce;
+}
+
+html.dark .nav-bar a:hover {
+  color: #c0caf5;
+}
+
+html.dark .nav-bar a[aria-current="page"],
+html.dark .nav-bar .nav-link-active {
+  background-color: rgba(65, 72, 104, 0.4);
+  color: #7aa2f7;
+}
+
+html.dark .nav-bar button {
+  color: #9aa5ce;
+}
+
+html.dark .nav-bar button:hover {
+  color: #c0caf5;
+  background-color: rgba(65, 72, 104, 0.3);
+}
+
+/* Blockquotes */
+html.dark .bento-card blockquote {
+  border-color: #7aa2f7;
+}
+
+html.dark .bento-card blockquote p {
+  color: #c0caf5;
+}
