@@ -143,6 +143,10 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   ];
 
   const filteredCommands = commands.filter((cmd) => {
+    // Hide the current theme option (redundant)
+    if (cmd.id === "theme-dark" && theme === "dark") return false;
+    if (cmd.id === "theme-light" && theme === "light") return false;
+
     if (!query) return true;
     const searchTerm = query.toLowerCase();
     return (

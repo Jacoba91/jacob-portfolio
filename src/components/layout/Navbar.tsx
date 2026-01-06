@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
-import { Sun, Moon, Terminal, Command } from "lucide-react";
+import { Sun, Moon, Terminal } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface NavbarProps {
@@ -81,14 +81,13 @@ export function Navbar({ onCommandPaletteOpen }: NavbarProps) {
           {/* Command Palette Button */}
           <button
             onClick={onCommandPaletteOpen}
-            className="flex items-center gap-1.5 px-2 py-1.5 rounded-md font-mono text-xs
+            className="keyboard-shortcut flex items-center gap-1.5 px-2 py-1.5 rounded-md font-mono text-xs
                 dark:text-mocha-subtext1 text-bone-pencil
                 dark:hover:bg-mocha-surface0/50 hover:bg-bone-cream/50
-                dark:border-mocha-surface0 border-bone-ash
                 border transition-colors"
           >
-            <Command className="w-3 h-3" />
-            <span className="hidden sm:inline">K</span>
+            <span className="hidden sm:inline">⌘/Ctrl</span>
+            <span>+ K</span>
           </button>
 
           {/* Theme Toggle */}

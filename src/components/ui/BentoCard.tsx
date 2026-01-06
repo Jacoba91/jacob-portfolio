@@ -54,7 +54,7 @@ export function BentoCard({
       )}
     >
       {/* Card Header */}
-      <div className="bento-card-header flex items-center gap-4 px-[40px] py-4 border-b dark:border-mocha-mauve/10 dark:bg-mocha-crust/30 border-bone-ash/20">
+      <div className="bento-card-header flex items-center gap-4 pl-4 pr-[40px] py-4 border-b dark:border-mocha-mauve/10 dark:bg-mocha-crust/30 border-bone-ash/20">
         {showTrafficLights && <TrafficLights />}
         {title && (
           <span className="bento-card-title text-sm font-mono dark:text-mocha-subtext1 text-bone-pencil">

@@ -226,6 +226,15 @@ html.dark .bento-card a:hover {
   color: #7aa2f7;
 }
 
+/* Hoverable inner elements (divs inside buttons, etc.) */
+html.dark .bento-card button > div:hover,
+html.dark .bento-card .hover-surface:hover,
+html.dark .nav-bar button:hover,
+html.dark .nav-bar a:hover,
+html.dark .command-palette button:hover {
+  background-color: rgba(65, 72, 104, 0.4);
+}
+
 /* Icon button links in cards */
 html.dark .bento-card .icon-link {
   background-color: rgba(65, 72, 104, 0.4);
@@ -252,10 +261,37 @@ html.dark .bento-card .nav-card-link:hover {
   background-color: rgba(65, 72, 104, 0.5);
 }
 
+/* Chevron toggle button */
+html.dark .bento-card .chevron-toggle svg {
+  color: #b4befe;
+}
+
+html.dark .bento-card .chevron-toggle:hover svg {
+  color: #c0caf5;
+}
+
+/* Date/calendar display */
+html.dark .bento-card .date-display {
+  color: #a9b1d6;
+}
+
+html.dark .bento-card .date-display svg {
+  color: #b4befe;
+}
+
 /* Navbar dark mode styles */
 html.dark .nav-bar a,
 html.dark .nav-bar span {
   color: #9aa5ce;
+}
+
+/* Keyboard shortcut button (Cmd+K / Ctrl+K) */
+html.dark .nav-bar .keyboard-shortcut {
+  border-color: rgba(65, 72, 104, 0.5);
+}
+
+html.dark .nav-bar .keyboard-shortcut:hover {
+  border-color: rgba(122, 162, 247, 0.4);
 }
 
 html.dark .nav-bar a:hover {
@@ -327,10 +363,31 @@ html.dark .command-palette-item.selected .icon {
 
 html.dark .command-palette-footer {
   border-color: rgba(65, 72, 104, 0.4);
-  color: #565f89;
+}
+
+html.dark .command-palette-footer span {
+  color: #a9b1d6;
 }
 
 html.dark .command-palette-footer kbd {
   background-color: rgba(65, 72, 104, 0.4);
+  color: #c0caf5;
+}
+
+/* Command palette header icons (search, close) */
+html.dark .command-palette-header svg {
   color: #a9b1d6;
+}
+
+html.dark .command-palette-header button:hover svg {
+  color: #c0caf5;
+}
+
+/* Nav card links (quick-nav, resume) - icons and arrows */
+html.dark .bento-card .nav-card-link svg {
+  color: #a9b1d6;
+}
+
+html.dark .bento-card .nav-card-link:hover svg {
+  color: #c0caf5;
 }

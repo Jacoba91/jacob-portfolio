@@ -90,7 +90,7 @@ function ExperienceCard({
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-sm dark:text-mocha-subtext0 text-bone-pencil shrink-0">
+          <div className="date-display flex items-center gap-2 text-sm dark:text-mocha-subtext0 text-bone-pencil shrink-0">
             <Calendar className="w-4 h-4" />
             <span className="font-mono">{experience.period}</span>
           </div>
@@ -137,7 +137,7 @@ function ExperienceCard({
         {/* Toggle Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full flex justify-center pt-2"
+          className="chevron-toggle w-full flex justify-center pt-2"
         >
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
