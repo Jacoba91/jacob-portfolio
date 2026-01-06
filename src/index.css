@@ -279,10 +279,24 @@ html.dark .bento-card .date-display svg {
   color: #b4befe;
 }
 
-/* Navbar dark mode styles */
-html.dark .nav-bar a,
-html.dark .nav-bar span {
+/* Navbar dark mode styles - only apply to nav links, not terminal path */
+html.dark .nav-bar > .hidden a,
+html.dark .nav-bar > .hidden span {
   color: #9aa5ce;
+}
+
+/* Terminal path colors - ensure these are not overridden */
+html.dark .nav-bar .terminal-path-segment.dark\:text-mocha-green {
+  color: #a6e3a1 !important;
+}
+html.dark .nav-bar .terminal-path-segment.dark\:text-mocha-blue {
+  color: #89b4fa !important;
+}
+html.dark .nav-bar .terminal-path-segment.dark\:text-mocha-mauve {
+  color: #cba6f7 !important;
+}
+html.dark .nav-bar .terminal-path-segment.dark\:text-mocha-overlay2 {
+  color: #9399b2 !important;
 }
 
 /* Keyboard shortcut button (Cmd+K / Ctrl+K) */

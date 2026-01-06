@@ -116,7 +116,7 @@ export function HomePage() {
       </BentoCard>
 
       {/* Current Role Card */}
-      <BentoCard title="recent work" colSpan={2} delay={0.2}>
+      <BentoCard title="recent-work" colSpan={2} delay={0.2}>
         <div className="flex items-start gap-5">
           <div className="icon-container p-4 rounded-lg dark:bg-mocha-surface0 bg-bone-cream">
             <Briefcase className="w-6 h-6 dark:text-mocha-green text-latte-green" />
@@ -125,9 +125,14 @@ export function HomePage() {
             <p className="font-serif text-lg dark:text-mocha-text text-bone-ink">
               Software Engineering Intern
             </p>
-            <p className="dark:text-mocha-mauve text-latte-mauve font-mono">
+            <a
+              href="https://carehive.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dark:text-mocha-subtext0 text-bone-pencil font-mono hover:underline"
+            >
               @ CareHive Health
-            </p>
+            </a>
             <p className="text-sm dark:text-mocha-subtext0 text-bone-pencil mt-1">
               Building reminder engines and multi-service features with
               TypeScript, SolidJS, and PostgreSQL.

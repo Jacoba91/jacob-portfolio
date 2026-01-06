@@ -18,6 +18,7 @@ const experiences: ExperienceItem[] = [
     company: "CareHive Health",
     role: "Software Engineering Intern",
     period: "May 2025 - Aug 2025",
+    link: "https://carehive.com/",
     tech: [
       "TypeScript",
       "SolidJS",
@@ -39,6 +40,7 @@ const experiences: ExperienceItem[] = [
     company: "Clearer.io",
     role: "Junior Software Engineer",
     period: "Sep 2024 - Apr 2025",
+    link: "https://www.clearer.io/",
     tech: ["React", "JavaScript", "Node.js", "PostgreSQL", "Redis", "AWS S3"],
     highlights: [
       "Worked on the Rich Returns Shopify app, implementing full-stack features using a CI/CD pipeline.",
@@ -51,6 +53,7 @@ const experiences: ExperienceItem[] = [
     company: "Clearer.io",
     role: "Software Engineering Intern",
     period: "May 2024 - Aug 2024",
+    link: "https://www.clearer.io/",
     tech: ["React", "Node.js", "PostgreSQL", "AWS S3"],
     highlights: [
       "Developed a full-stack solution with a new API endpoint and controller to remove photo references from the front-end, database, and AWS S3.",
@@ -85,9 +88,20 @@ function ExperienceCard({
               <h3 className="font-serif text-lg dark:text-mocha-text text-bone-ink">
                 {experience.role}
               </h3>
-              <p className="font-mono text-sm dark:text-mocha-mauve text-latte-mauve">
-                @ {experience.company}
-              </p>
+              {experience.link ? (
+                <a
+                  href={experience.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-sm dark:text-mocha-subtext0 text-bone-pencil hover:underline"
+                >
+                  @ {experience.company}
+                </a>
+              ) : (
+                <p className="font-mono text-sm dark:text-mocha-subtext0 text-bone-pencil">
+                  @ {experience.company}
+                </p>
+              )}
             </div>
           </div>
           <div className="date-display flex items-center gap-2 text-sm dark:text-mocha-subtext0 text-bone-pencil shrink-0">

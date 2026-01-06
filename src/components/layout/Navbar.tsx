@@ -38,25 +38,32 @@ export function Navbar({ onCommandPaletteOpen }: NavbarProps) {
           border backdrop-blur-md dark:shadow-lg dark:shadow-mocha-mauve/10"
       >
         {/* Terminal Path */}
-        <div className="flex items-center gap-2">
+        <Link
+          to="/"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
           <Terminal className="w-4 h-4 dark:text-mocha-mauve text-latte-mauve" />
           <span className="font-mono text-sm">
-            <span className="dark:text-mocha-green text-latte-green">
+            <span className="terminal-path-segment dark:text-mocha-green text-latte-green">
               jacob
             </span>
-            <span className="dark:text-mocha-subtext0 text-bone-pencil">@</span>
-            <span className="dark:text-mocha-blue text-latte-blue">
+            <span className="terminal-path-segment dark:text-mocha-overlay2 text-bone-pencil">
+              @
+            </span>
+            <span className="terminal-path-segment dark:text-mocha-blue text-latte-blue">
               portfolio
             </span>
-            <span className="dark:text-mocha-subtext0 text-bone-pencil">:</span>
-            <span className="dark:text-mocha-mauve text-latte-mauve">
+            <span className="terminal-path-segment dark:text-mocha-overlay2 text-bone-pencil">
+              :
+            </span>
+            <span className="terminal-path-segment dark:text-mocha-mauve text-latte-mauve">
               {terminalPath}
             </span>
             <span className="cursor-blink dark:text-mocha-text text-bone-ink">
               _
             </span>
           </span>
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-1">
