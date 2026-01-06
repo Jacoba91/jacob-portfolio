@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
+import { GithubIcon, LinkedinIcon } from "../ui";
 import {
   Search,
   Home,
@@ -11,8 +12,6 @@ import {
   Wrench,
   Sun,
   Moon,
-  Github,
-  Linkedin,
   Mail,
   X,
 } from "lucide-react";
@@ -110,7 +109,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     {
       id: "github",
       label: "open github",
-      icon: <Github className="w-4 h-4" />,
+      icon: <GithubIcon className="w-4 h-4" />,
       action: () => {
         window.open("https://github.com/Jacoba91", "_blank");
         onClose();
@@ -120,7 +119,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     {
       id: "linkedin",
       label: "open linkedin",
-      icon: <Linkedin className="w-4 h-4" />,
+      icon: <LinkedinIcon className="w-4 h-4" />,
       action: () => {
         window.open(
           "https://www.linkedin.com/in/jacob-aragao-710664255/",

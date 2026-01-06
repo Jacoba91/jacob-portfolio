@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-import { BentoCard } from "../components/ui";
+import { BentoCard, GithubIcon, LinkedinIcon } from "../components/ui";
 import { BentoGrid } from "../components/layout";
 import {
-  Github,
-  Linkedin,
   Mail,
   MapPin,
   GraduationCap,
@@ -56,7 +54,7 @@ export function HomePage() {
               className="icon-link p-2 rounded-lg dark:bg-mocha-surface0 bg-bone-cream 
                 dark:hover:bg-mocha-surface1 hover:bg-bone-ash/30 transition-colors"
             >
-              <Github className="w-5 h-5 dark:text-mocha-text text-bone-ink" />
+              <GithubIcon className="w-5 h-5 dark:text-mocha-text text-bone-ink" />
             </a>
             <a
               href="https://www.linkedin.com/in/jacob-aragao-710664255/"
@@ -65,7 +63,7 @@ export function HomePage() {
               className="icon-link p-2 rounded-lg dark:bg-mocha-surface0 bg-bone-cream 
                 dark:hover:bg-mocha-surface1 hover:bg-bone-ash/30 transition-colors"
             >
-              <Linkedin className="w-5 h-5 dark:text-mocha-text text-bone-ink" />
+              <LinkedinIcon className="w-5 h-5 dark:text-mocha-text text-bone-ink" />
             </a>
             <a
               href="mailto:jacobaragao1@gmail.com"

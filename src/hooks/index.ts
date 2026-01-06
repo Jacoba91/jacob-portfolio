@@ -1,2 +1,2 @@
-export { useTheme } from './useTheme';
+export { useTheme, ThemeProvider } from './useTheme';
 export { useStarfield } from './useStarfield';

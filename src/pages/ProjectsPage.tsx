@@ -1,6 +1,6 @@
-import { BentoCard } from "../components/ui";
+import { BentoCard, GithubIcon } from "../components/ui";
 import { BentoGrid } from "../components/layout";
-import { FolderGit2, ExternalLink, Play, Github } from "lucide-react";
+import { FolderGit2, ExternalLink, Play } from "lucide-react";
 
 interface Project {
   name: string;
@@ -96,7 +96,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
                   dark:hover:bg-mocha-surface1 hover:bg-bone-ash/30 transition-colors"
                 title="View source"
               >
-                <Github className="w-4 h-4 dark:text-mocha-text text-bone-ink" />
+                <GithubIcon className="w-4 h-4 dark:text-mocha-text text-bone-ink" />
               </a>
             )}
           </div>
@@ -158,7 +158,7 @@ export function ProjectsPage() {
               dark:hover:bg-mocha-surface1 hover:bg-bone-ash/30
               transition-colors"
           >
-            <Github className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4" />
             <span>View GitHub</span>
           </a>
         </div>
