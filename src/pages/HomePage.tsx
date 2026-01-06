@@ -236,7 +236,7 @@ export function HomePage() {
       {/* Resume Link */}
       <BentoCard title="resume" delay={0.4}>
         <a
-          href="/JacobAragaoResume.pdf"
+          href={`${import.meta.env.BASE_URL}JacobAragaoResume.pdf`}
           target="_blank"
           rel="noopener noreferrer"
           className="nav-card-link flex items-center justify-between p-4 rounded-lg
