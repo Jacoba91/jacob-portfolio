@@ -8,9 +8,12 @@ import {
   SkillsPage,
 } from "./pages";
 
+// Use base path for GitHub Pages deployment
+const basename = import.meta.env.BASE_URL;
+
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<RootLayout />}>
           <Route index element={<HomePage />} />
