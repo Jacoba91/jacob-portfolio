@@ -79,7 +79,7 @@ function ExperienceCard({
     >
       <div className="space-y-4">
         {/* Header */}
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
           <div className="flex items-start gap-3">
             <div className="icon-container p-2 rounded-lg dark:bg-mocha-surface0 bg-bone-cream shrink-0">
               <Briefcase className="w-5 h-5 dark:text-mocha-mauve text-latte-mauve" />
@@ -104,9 +104,11 @@ function ExperienceCard({
               )}
             </div>
           </div>
-          <div className="date-display flex items-center gap-2 text-sm dark:text-mocha-subtext0 text-bone-pencil shrink-0">
-            <Calendar className="w-4 h-4" />
-            <span className="font-mono">{experience.period}</span>
+          <div className="date-display flex items-center gap-2 text-sm dark:text-mocha-subtext0 text-bone-pencil sm:shrink-0 ml-11 sm:ml-0">
+            <Calendar className="w-4 h-4 shrink-0" />
+            <span className="font-mono whitespace-nowrap">
+              {experience.period}
+            </span>
           </div>
         </div>
 
