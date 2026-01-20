@@ -13,6 +13,13 @@ interface ExperienceItem {
   link?: string;
 }
 
+// Icon color classes for each experience entry (full class strings for Tailwind)
+const experienceIconClasses = [
+  "dark:text-mocha-green text-latte-green",       // CareHive Health
+  "dark:text-mocha-blue text-latte-blue",         // Clearer.io Junior
+  "dark:text-mocha-sapphire text-latte-sapphire", // Clearer.io Intern
+];
+
 const experiences: ExperienceItem[] = [
   {
     company: "CareHive Health",
@@ -65,24 +72,28 @@ const experiences: ExperienceItem[] = [
 function ExperienceCard({
   experience,
   delay,
+  colorIndex,
 }: {
   experience: ExperienceItem;
   delay: number;
+  colorIndex: number;
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const iconColorClass = experienceIconClasses[colorIndex] || experienceIconClasses[0];
 
   return (
     <BentoCard
       title={experience.company.toLowerCase().replace(/\./g, "")}
       colSpan={4}
       delay={delay}
+      className="w-full"
     >
-      <div className="space-y-4">
+      <div className="space-y-4 min-w-0">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-3 min-w-0">
             <div className="icon-container p-2 rounded-lg dark:bg-mocha-surface0 bg-bone-cream shrink-0">
-              <Briefcase className="w-5 h-5 dark:text-mocha-mauve text-latte-mauve" />
+              <Briefcase className={`w-5 h-5 ${iconColorClass}`} />
             </div>
             <div>
               <h3 className="font-serif text-lg dark:text-mocha-text text-bone-ink">
@@ -126,7 +137,7 @@ function ExperienceCard({
         </div>
 
         {/* Highlights - Collapsible */}
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {isExpanded && (
             <motion.ul
               initial={{ opacity: 0, height: 0 }}
@@ -140,10 +151,10 @@ function ExperienceCard({
                   key={index}
                   className="flex items-start gap-2 text-sm dark:text-mocha-subtext1 text-bone-pencil"
                 >
-                  <span className="dark:text-mocha-green text-latte-green mt-1">
+                  <span className={`${iconColorClass} mt-1 shrink-0`}>
                     ▸
                   </span>
-                  <span>{highlight}</span>
+                  <span className="break-words min-w-0">{highlight}</span>
                 </li>
               ))}
             </motion.ul>
@@ -170,9 +181,9 @@ function ExperienceCard({
 
 export function ExperiencePage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full max-w-full overflow-hidden">
       {/* Header */}
-      <BentoCard title="~/experience" colSpan={4} delay={0}>
+      <BentoCard title="~/experience" colSpan={4} delay={0} className="w-full">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-serif font-bold dark:text-mocha-text text-bone-ink mb-2">
@@ -186,12 +197,13 @@ export function ExperiencePage() {
       </BentoCard>
 
       {/* Experience Cards - Vertical Timeline */}
-      <div className="space-y-6">
+      <div className="space-y-6 w-full">
         {experiences.map((exp, index) => (
           <ExperienceCard
             key={`${exp.company}-${exp.period}`}
             experience={exp}
             delay={0.1 + index * 0.1}
+            colorIndex={index}
           />
         ))}
       </div>

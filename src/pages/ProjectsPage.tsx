@@ -12,6 +12,13 @@ interface Project {
   video?: string;
 }
 
+// Icon color classes for each project (full class strings for Tailwind)
+const projectIconClasses = [
+  "dark:text-mocha-blue text-latte-blue",         // VentureCircle
+  "dark:text-mocha-sapphire text-latte-sapphire", // Vantage
+  "dark:text-mocha-peach text-latte-peach",       // FantasyGuide
+];
+
 const projects: Project[] = [
   {
     name: "VentureCircle",
@@ -24,6 +31,18 @@ const projects: Project[] = [
       "Selected for McGill's competitive TechAccel Program (Summer 2025); validated the business model through mentorship and market research, securing $1,250 in grant funding.",
     ],
     link: "https://venturecircle.io/",
+  },
+  {
+    name: "Vantage",
+    description:
+      "Real-time multimodal voice assistant with screen context awareness.",
+    tech: ["Django Channels", "Gemini API", "WebSocket", "MongoDB", "Docker", "pytest-asyncio"],
+    highlights: [
+      "Built a real-time multimodal voice assistant using Django Channels and Google's Gemini 2.5 Flash Native Audio API with full-duplex WebSocket streaming for audio capture, screen context, and AI response playback.",
+      "Engineered a Push-to-Talk system with deferred screen capture that synchronizes visual context with voice queries.",
+      "Containerized with Docker Compose and implemented MongoDB persistence with async test coverage using pytest-asyncio.",
+    ],
+    video: "https://www.youtube.com/watch?v=O69Y7m8nO_I",
   },
   {
     name: "FantasyGuide",
@@ -39,7 +58,9 @@ const projects: Project[] = [
   },
 ];
 
-function ProjectCard({ project, delay }: { project: Project; delay: number }) {
+function ProjectCard({ project, delay, colorIndex }: { project: Project; delay: number; colorIndex: number }) {
+  const iconColorClass = projectIconClasses[colorIndex] || projectIconClasses[0];
+  
   return (
     <BentoCard
       title={project.name.toLowerCase().replace(/\s/g, "-")}
@@ -51,7 +72,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-start gap-3">
             <div className="icon-container p-2 rounded-lg dark:bg-mocha-surface0 bg-bone-cream shrink-0">
-              <FolderGit2 className="w-5 h-5 dark:text-mocha-peach text-latte-peach" />
+              <FolderGit2 className={`w-5 h-5 ${iconColorClass}`} />
             </div>
             <div>
               <h3 className="font-serif text-lg dark:text-mocha-text text-bone-ink">
@@ -122,7 +143,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
               key={index}
               className="flex items-start gap-2 text-sm dark:text-mocha-subtext1 text-bone-pencil"
             >
-              <span className="dark:text-mocha-peach text-latte-peach mt-1">
+              <span className={`${iconColorClass} mt-1`}>
                 ▸
               </span>
               <span>{highlight}</span>
@@ -171,6 +192,7 @@ export function ProjectsPage() {
             key={project.name}
             project={project}
             delay={0.1 + index * 0.1}
+            colorIndex={index}
           />
         ))}
 
