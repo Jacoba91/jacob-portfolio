@@ -30,6 +30,12 @@ export function AboutPage() {
               from concept to deployment.
             </p>
             <p>
+              Most recently I spent the summer as a software engineering intern at
+              NationGraph, shipping features end to end and learning how much of
+              great software lives above the code: figuring out what to build
+              before building it.
+            </p>
+            <p>
               Outside of work/school, I love pushing my limits athletically in
               competitive settings. I particularly enjoy going to the gym and
               playing hockey.
@@ -136,7 +142,7 @@ export function AboutPage() {
             "A problem well stated is a problem half solved."
           </p>
           <p className="font-serif text-lg dark:text-mocha-text text-bone-ink">
-            — Charles Kettering
+            - Charles Kettering
           </p>
         </blockquote>
       </BentoCard>

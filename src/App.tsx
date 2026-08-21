@@ -6,6 +6,8 @@ import {
   ExperiencePage,
   ProjectsPage,
   SkillsPage,
+  BlogPage,
+  BlogPostPage,
 } from "./pages";
 import { ThemeProvider } from "./hooks/useTheme";
 
@@ -23,6 +25,8 @@ function App() {
             <Route path="experience" element={<ExperiencePage />} />
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="skills" element={<SkillsPage />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="blog/:slug" element={<BlogPostPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

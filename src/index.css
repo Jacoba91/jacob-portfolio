@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @import 'tailwindcss';
 
@@ -152,6 +152,16 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgb(240 234 214 / 0.8);
   backdrop-filter: blur(12px);
   border: 1px solid rgb(166 156 137 / 0.3);
+}
+
+/* Light mode: lift cards off the golf-course backdrop so they don't read flat */
+.bento-card,
+.nav-bar {
+  box-shadow: 0 12px 28px -14px rgba(33, 31, 27, 0.28);
+}
+
+.blog-article {
+  box-shadow: 0 22px 48px -24px rgba(33, 31, 27, 0.4);
 }
 
 /* Bento card dark mode styles - VS Code inspired */
@@ -334,6 +344,55 @@ html.dark .bento-card blockquote {
 
 html.dark .bento-card blockquote p {
   color: #c0caf5;
+}
+
+/* Blog article reading surface, intentionally NOT a .bento-card so prose
+   escapes the muted card text colors above and stays high-contrast */
+.prose-reading {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+html.dark .blog-article {
+  background-color: rgba(15, 15, 26, 0.94);
+  border-color: rgba(69, 71, 90, 0.5);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .blog-article-header {
+  background-color: rgba(17, 17, 27, 0.6);
+  border-color: rgba(49, 50, 68, 0.6);
+}
+
+html.dark .blog-article-header span {
+  color: #a6adc8;
+}
+
+html.dark .blog-article .prose-reading,
+html.dark .blog-article h1,
+html.dark .blog-article h2 {
+  color: #cdd6f4;
+}
+
+html.dark .blog-article .accent-mark {
+  color: #cba6f7;
+}
+
+html.dark .blog-article figcaption {
+  color: #a6adc8;
+}
+
+html.dark .blog-article img {
+  border-color: rgba(49, 50, 68, 0.9);
+}
+
+html.dark .blog-back-link {
+  color: #a6adc8;
+}
+
+html.dark .blog-back-link:hover {
+  color: #cdd6f4;
 }
 
 /* Command Palette dark mode styles */

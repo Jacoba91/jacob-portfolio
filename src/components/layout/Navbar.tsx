@@ -22,6 +22,7 @@ export function Navbar({ onCommandPaletteOpen }: NavbarProps) {
     { path: "/experience", label: "experience" },
     { path: "/projects", label: "projects" },
     { path: "/skills", label: "skills" },
+    { path: "/blog", label: "blog" },
   ];
 
   return (

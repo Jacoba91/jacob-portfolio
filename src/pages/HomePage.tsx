@@ -42,7 +42,7 @@ export function HomePage() {
             >
               Building full-stack applications with a focus on clean
               architecture and user experience. Currently working with
-              TypeScript, React, and Node.js.
+              TypeScript, React, and Python.
             </motion.p>
           </div>
 
@@ -57,7 +57,7 @@ export function HomePage() {
               <GithubIcon className="w-5 h-5 dark:text-mocha-text text-bone-ink" />
             </a>
             <a
-              href="https://www.linkedin.com/in/jacob-aragao-710664255/"
+              href="https://www.linkedin.com/in/jacob-aragao/"
               target="_blank"
               rel="noopener noreferrer"
               className="icon-link p-2 rounded-lg dark:bg-mocha-surface0 bg-bone-cream 
@@ -117,23 +117,24 @@ export function HomePage() {
       <BentoCard title="recent-work" colSpan={2} delay={0.2}>
         <div className="flex items-start gap-5">
           <div className="icon-container p-4 rounded-lg dark:bg-mocha-surface0 bg-bone-cream">
-            <Briefcase className="w-6 h-6 dark:text-mocha-green text-latte-green" />
+            <Briefcase className="w-6 h-6 dark:text-mocha-mauve text-latte-mauve" />
           </div>
           <div className="flex-1 space-y-2">
             <p className="font-serif text-lg dark:text-mocha-text text-bone-ink">
               Software Engineering Intern
             </p>
             <a
-              href="https://carehive.com/"
+              href="https://nationgraph.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="dark:text-mocha-subtext0 text-bone-pencil font-mono hover:underline"
             >
-              @ CareHive Health
+              @ NationGraph
             </a>
             <p className="text-sm dark:text-mocha-subtext0 text-bone-pencil mt-1">
-              Building reminder engines and multi-service features with
-              TypeScript, SolidJS, and PostgreSQL.
+              Rebuilt the Signals feed into a fast inbox and helped shape
+              Compass, our agent-first experience, with React, TypeScript, and
+              FastAPI.
             </p>
           </div>
         </div>

@@ -25,6 +25,7 @@ const skillCategories: SkillCategory[] = [
       "JavaScript",
       "TypeScript",
       "Python",
+      "Go",
       "SQL",
       "GraphQL",
       "HTML",
@@ -37,7 +38,15 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Frameworks & Libraries",
     icon: <Zap className="w-5 h-5" />,
-    skills: ["React", "Node.js", "Django", "SolidJS", "Flask", "Tailwind CSS"],
+    skills: [
+      "React",
+      "Node.js",
+      "FastAPI",
+      "Django",
+      "SolidJS",
+      "Flask",
+      "Tailwind CSS",
+    ],
     color: "blue",
   },
   {
@@ -63,9 +72,10 @@ const skillCategories: SkillCategory[] = [
     icon: <Server className="w-5 h-5" />,
     skills: [
       "RESTful APIs",
+      "Anthropic Claude",
+      "OpenAI",
       "Shopify",
       "ShipStation",
-      "OpenAI",
       "Stripe",
       "Braze",
     ],

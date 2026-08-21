@@ -1,11 +1,32 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { Navbar } from "../components/layout";
-import { Starfield, CommandPalette } from "../components/features";
+import {
+  Starfield,
+  DeepSpace,
+  Earthscape,
+  CommandPalette,
+} from "../components/features";
+import { useTheme } from "../hooks/useTheme";
 
 export function RootLayout() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
+  // Reading pages get the still sky; warp-speed stars are distracting next to text
+  const isBlog = location.pathname.startsWith("/blog");
+  // Dark = cosmos (warping stars, or a calm still field on the blog),
+  // light = back on earth (a golf-course horizon).
+  const background =
+    theme === "dark" ? (
+      isBlog ? (
+        <DeepSpace />
+      ) : (
+        <Starfield />
+      )
+    ) : (
+      <Earthscape />
+    );
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -26,7 +47,7 @@ export function RootLayout() {
 
   return (
     <div className="min-h-screen transition-colors duration-300 relative">
-      <Starfield />
+      {background}
       <Navbar onCommandPaletteOpen={() => setIsCommandPaletteOpen(true)} />
       <CommandPalette
         isOpen={isCommandPaletteOpen}

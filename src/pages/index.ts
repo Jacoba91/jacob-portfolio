@@ -3,3 +3,5 @@ export { AboutPage } from './AboutPage';
 export { ExperiencePage } from './ExperiencePage';
 export { ProjectsPage } from './ProjectsPage';
 export { SkillsPage } from './SkillsPage';
+export { BlogPage } from './BlogPage';
+export { BlogPostPage } from './BlogPostPage';

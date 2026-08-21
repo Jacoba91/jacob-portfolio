@@ -7,41 +7,53 @@ interface Project {
   description: string;
   tech: string[];
   highlights: string[];
+  iconColor: string; // full Tailwind class string for the accent color
   link?: string;
   github?: string;
   video?: string;
 }
 
-// Icon color classes for each project (full class strings for Tailwind)
-const projectIconClasses = [
-  "dark:text-mocha-blue text-latte-blue",         // VentureCircle
-  "dark:text-mocha-sapphire text-latte-sapphire", // Vantage
-  "dark:text-mocha-peach text-latte-peach",       // FantasyGuide
-];
+// VentureCircle is hidden. Flip to true and rebuild to show it again — while
+// false, the gated entry below is dead-code-eliminated from the bundle, so
+// nothing about it ships, not just hidden from view.
+const SHOW_VENTURECIRCLE = false;
 
 const projects: Project[] = [
-  {
-    name: "VentureCircle",
-    description:
-      'All-in-one entrepreneurship platform facilitating the "Idea to IPO" lifecycle.',
-    tech: ["React", "Django", "Python", "Firebase", "unittest"],
-    highlights: [
-      "Co-founded an all-in-one entrepreneurship platform; built a community forum and an AI-driven support ecosystem.",
-      "Engineered a comprehensive unit test suite using Python's unittest framework to verify backend controller functions and ensure data integrity across Firebase interactions.",
-      "Selected for McGill's competitive TechAccel Program (Summer 2025); validated the business model through mentorship and market research, securing $1,250 in grant funding.",
-    ],
-    link: "https://venturecircle.io/",
-  },
+  ...(SHOW_VENTURECIRCLE
+    ? [
+        {
+          name: "VentureCircle",
+          description:
+            'All-in-one entrepreneurship platform facilitating the "Idea to IPO" lifecycle.',
+          tech: ["React", "Django", "Python", "Firebase", "unittest"],
+          highlights: [
+            "Co-founded an all-in-one entrepreneurship platform; built a community forum and an AI-driven support ecosystem.",
+            "Engineered a comprehensive unit test suite using Python's unittest framework to verify backend controller functions and ensure data integrity across Firebase interactions.",
+            "Selected for McGill's competitive TechAccel Program (Summer 2025); validated the business model through mentorship and market research, securing $1,250 in grant funding.",
+          ],
+          iconColor: "dark:text-mocha-blue text-latte-blue",
+          link: "https://venturecircle.io/",
+        } as Project,
+      ]
+    : []),
   {
     name: "Vantage",
     description:
       "Real-time multimodal voice assistant with screen context awareness.",
-    tech: ["Django Channels", "Gemini API", "WebSocket", "MongoDB", "Docker", "pytest-asyncio"],
+    tech: [
+      "Django Channels",
+      "Gemini API",
+      "WebSocket",
+      "MongoDB",
+      "Docker",
+      "pytest-asyncio",
+    ],
     highlights: [
       "Built a real-time multimodal voice assistant using Django Channels and Google's Gemini 2.5 Flash Native Audio API with full-duplex WebSocket streaming for audio capture, screen context, and AI response playback.",
       "Engineered a Push-to-Talk system with deferred screen capture that synchronizes visual context with voice queries.",
       "Containerized with Docker Compose and implemented MongoDB persistence with async test coverage using pytest-asyncio.",
     ],
+    iconColor: "dark:text-mocha-sapphire text-latte-sapphire",
     video: "https://www.youtube.com/watch?v=O69Y7m8nO_I",
   },
   {
@@ -54,13 +66,14 @@ const projects: Project[] = [
       "Automated player data scraping with BeautifulSoup and analyzed it using Pandas.",
       "Integrated OpenAI's API to provide AI-driven roster recommendations, improving user engagement with personalized insights.",
     ],
+    iconColor: "dark:text-mocha-peach text-latte-peach",
     video: "https://youtu.be/EM8tWZOGKWI",
   },
 ];
 
-function ProjectCard({ project, delay, colorIndex }: { project: Project; delay: number; colorIndex: number }) {
-  const iconColorClass = projectIconClasses[colorIndex] || projectIconClasses[0];
-  
+function ProjectCard({ project, delay }: { project: Project; delay: number }) {
+  const iconColorClass = project.iconColor;
+
   return (
     <BentoCard
       title={project.name.toLowerCase().replace(/\s/g, "-")}
@@ -141,9 +154,9 @@ function ProjectCard({ project, delay, colorIndex }: { project: Project; delay: 
           {project.highlights.map((highlight, index) => (
             <li
               key={index}
-              className="flex items-start gap-2 text-sm dark:text-mocha-subtext1 text-bone-pencil"
+              className="flex items-start gap-2.5 text-sm leading-6 dark:text-mocha-subtext1 text-bone-pencil"
             >
-              <span className={`${iconColorClass} mt-1`}>
+              <span className={`${iconColorClass} shrink-0 leading-6`} aria-hidden>
                 ▸
               </span>
               <span>{highlight}</span>
@@ -192,14 +205,13 @@ export function ProjectsPage() {
             key={project.name}
             project={project}
             delay={0.1 + index * 0.1}
-            colorIndex={index}
           />
         ))}
 
         {/* More Projects Coming */}
         <BentoCard title="more-coming" colSpan={2} delay={0.3}>
           <div
-            className="flex items-center justify-center h-32 rounded-lg 
+            className="flex items-center justify-center h-32 rounded-lg
             border-2 border-dashed dark:border-mocha-surface1 border-bone-ash/50"
           >
             <p className="font-mono text-sm dark:text-mocha-subtext0 text-bone-pencil">

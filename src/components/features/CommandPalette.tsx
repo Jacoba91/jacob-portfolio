@@ -10,6 +10,7 @@ import {
   Briefcase,
   FolderGit2,
   Wrench,
+  BookOpen,
   Sun,
   Moon,
   Mail,
@@ -87,6 +88,16 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       keywords: ["skills", "tech", "stack", "tools", "cd"],
     },
     {
+      id: "blog",
+      label: "cd ~/blog",
+      icon: <BookOpen className="w-4 h-4" />,
+      action: () => {
+        navigate("/blog");
+        onClose();
+      },
+      keywords: ["blog", "posts", "writing", "articles", "cd"],
+    },
+    {
       id: "theme-dark",
       label: "theme dark",
       icon: <Moon className="w-4 h-4" />,
@@ -122,7 +133,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       icon: <LinkedinIcon className="w-4 h-4" />,
       action: () => {
         window.open(
-          "https://www.linkedin.com/in/jacob-aragao-710664255/",
+          "https://www.linkedin.com/in/jacob-aragao/",
           "_blank"
         );
         onClose();
